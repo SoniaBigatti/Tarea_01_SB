@@ -14,36 +14,38 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            children: [
-              //Widget de texto extraido.
-              const TextoInicioSecion(),
-              //Widget de Imput extraido con argumento.
-              const Imput(
-                text: 'E-mail usuario',
+      body: GestureDetector( onTap: (){FocusScope.of(context).unfocus();},
+        child: SafeArea(
+          child: SingleChildScrollView(
+            child: Center(
+              child: Column(
+                children: [
+                  //Widget de texto extraido.
+                  const TextoInicioSecion(),
+                  //Widget de Imput extraido con argumento.
+                  const Imput(
+                    text: 'E-mail usuario',
+                  ),
+          
+                  const SizedBox(height: 20),
+          
+                  const Imput(
+                    text: 'Clave de usuario',
+                  ),
+          
+                  const SizedBox(height: 270),
+          
+                  const CustomButton(),
+          
+                  const SizedBox(height: 20),
+                  OutlinedButton(
+                    onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder:(context) => const MyHomePage())),
+                    child: const Volver(),
+                  ),
+                  const SizedBox(height: 20),
+                ],
               ),
-
-              const SizedBox(height: 20),
-
-              const Imput(
-                text: 'Clave de usuario',
-              ),
-
-              const Expanded(
-                child: SizedBox(height: 20),
-              ),
-
-              const CustomButton(),
-
-              const SizedBox(height: 20),
-              OutlinedButton(
-                onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder:(context) => const MyHomePage())),
-                child: const Volver(),
-              ),
-              const SizedBox(height: 20),
-            ],
+            ),
           ),
         ),
       ),
@@ -65,7 +67,7 @@ class TextoInicioSecion extends StatelessWidget {
       margin: const EdgeInsets.all(24),
       height: 30,
       child: const Text(
-        'Iniciar Seción',
+        'Iniciar Sesión',
         style: TextStyle(
             fontFamily: 'Rokkitt', fontSize: 26, fontWeight: FontWeight.bold, color: Colors.pink),
       ),
