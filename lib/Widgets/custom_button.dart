@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../screens/scrollable.dart';
+
 class CustomButton extends StatefulWidget {
   const CustomButton({super.key});
 
@@ -11,7 +13,7 @@ class CustomButtonState extends State<CustomButton> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: () {},
+        onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder:(context) => const ScrollableView())),
         child: Container(
             margin: const EdgeInsets.all(8),
             padding: const EdgeInsets.symmetric(vertical: 12),
